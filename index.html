@@ -358,6 +358,16 @@ h3 {
 .updates-grid article {
   position: relative;
   min-height: 215px;
+  overflow: hidden;
+}
+
+.update-image {
+  display: block;
+  width: calc(100% + 48px);
+  height: 190px;
+  margin: -24px -24px 20px;
+  object-fit: cover;
+  background: var(--soft);
 }
 
 .update-meta {
@@ -424,8 +434,30 @@ textarea {
   background: #fff;
 }
 
+input[type="file"] {
+  padding: 10px;
+}
+
+input[type="checkbox"] {
+  width: auto;
+}
+
 textarea {
   resize: vertical;
+}
+
+.checkbox-label {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.image-preview {
+  min-height: 180px;
+  border: 1px dashed var(--line);
+  border-radius: var(--radius);
+  background-size: cover;
+  background-position: center;
 }
 
 .form-note {
@@ -474,6 +506,15 @@ textarea {
 
 .admin-item {
   color: var(--ink);
+}
+
+.admin-thumb {
+  width: 120px;
+  height: 82px;
+  margin-bottom: 16px;
+  border-radius: var(--radius);
+  object-fit: cover;
+  background: var(--soft);
 }
 
 .admin-actions,
@@ -763,6 +804,7 @@ footer img {
         </div>
         <form class="admin-form" data-update-form>
           <input type="hidden" name="id" />
+          <input type="hidden" name="existingImage" />
           <label>
             Pavadinimas
             <input name="title" type="text" placeholder="Pvz. Pradėtas naujas objektas" required />
@@ -775,12 +817,43 @@ footer img {
             Tekstas
             <textarea name="body" rows="4" placeholder="Įrašykite update tekstą" required></textarea>
           </label>
+          <label>
+            Nuotrauka
+            <input name="image" type="file" accept="image/png,image/jpeg,image/webp" />
+          </label>
+          <label class="checkbox-label">
+            <input name="removeImage" type="checkbox" />
+            Pašalinti esamą nuotrauką
+          </label>
+          <div class="image-preview" data-image-preview hidden></div>
           <div class="form-row">
             <button class="primary-action" type="submit" data-save-update>Išsaugoti update</button>
             <button class="secondary-action compact" type="button" data-clear-form>Valyti</button>
           </div>
         </form>
         <div class="admin-list" data-admin-list></div>
+        <div class="admin-heading admin-subheading">
+          <div>
+            <p class="eyebrow">Nustatymai</p>
+            <h2>Slaptažodžio keitimas</h2>
+          </div>
+        </div>
+        <form class="admin-form" data-password-form>
+          <label>
+            Dabartinis slaptažodis
+            <input name="currentPassword" type="password" placeholder="Įveskite dabartinį slaptažodį" required />
+          </label>
+          <label>
+            Naujas slaptažodis
+            <input name="newPassword" type="password" minlength="8" placeholder="Bent 8 simboliai" required />
+          </label>
+          <label>
+            Pakartokite naują slaptažodį
+            <input name="repeatPassword" type="password" minlength="8" placeholder="Pakartokite naują slaptažodį" required />
+          </label>
+          <button class="primary-action" type="submit">Pakeisti slaptažodį</button>
+          <p class="form-note" data-password-note></p>
+        </form>
         <div class="admin-heading admin-subheading">
           <div>
             <p class="eyebrow">Klientai</p>
@@ -805,7 +878,7 @@ footer img {
           <input name="password" type="password" value="Darom2026!" required />
         </label>
         <button class="primary-action" type="submit">Prisijungti</button>
-        <p class="login-hint">Demo prisijungimas: admin@darom.lt / Darom2026!</p>
+        <p class="login-hint">Pradinis prisijungimas: admin@darom.lt / Darom2026!</p>
         <p class="form-note error" data-login-error></p>
       </form>
     </dialog>
@@ -821,6 +894,7 @@ const ADMIN_PASSWORD = "Darom2026!";
 const STORAGE_KEY = "darom_updates_v1";
 const SESSION_KEY = "darom_admin_session";
 const INQUIRIES_KEY = "darom_inquiries_v1";
+const PASSWORD_KEY = "darom_admin_password_v1";
 
 const defaultUpdates = [
   {
@@ -851,6 +925,9 @@ const adminPanel = document.querySelector("[data-admin-panel]");
 const adminList = document.querySelector("[data-admin-list]");
 const updateForm = document.querySelector("[data-update-form]");
 const inquiryList = document.querySelector("[data-inquiry-list]");
+const passwordForm = document.querySelector("[data-password-form]");
+const passwordNote = document.querySelector("[data-password-note]");
+const imagePreview = document.querySelector("[data-image-preview]");
 const loginDialog = document.querySelector("[data-login-dialog]");
 const loginForm = document.querySelector("[data-login-form]");
 const loginError = document.querySelector("[data-login-error]");
@@ -903,6 +980,38 @@ function writeUpdates(updates) {
   localStorage.setItem(STORAGE_KEY, JSON.stringify(updates));
 }
 
+function getAdminPassword() {
+  return localStorage.getItem(PASSWORD_KEY) || ADMIN_PASSWORD;
+}
+
+function setAdminPassword(password) {
+  localStorage.setItem(PASSWORD_KEY, password);
+}
+
+function readImageFile(file) {
+  return new Promise((resolve, reject) => {
+    if (!file || !file.size) {
+      resolve("");
+      return;
+    }
+
+    if (!file.type.startsWith("image/")) {
+      reject(new Error("Pasirinktas failas nėra nuotrauka."));
+      return;
+    }
+
+    if (file.size > 1_800_000) {
+      reject(new Error("Nuotrauka per didelė. Rinkitės iki 1.8 MB JPG, PNG arba WEBP."));
+      return;
+    }
+
+    const reader = new FileReader();
+    reader.onload = () => resolve(reader.result);
+    reader.onerror = () => reject(new Error("Nepavyko perskaityti nuotraukos."));
+    reader.readAsDataURL(file);
+  });
+}
+
 function formatDate(date) {
   return new Intl.DateTimeFormat("lt-LT", {
     year: "numeric",
@@ -917,6 +1026,7 @@ function renderUpdates() {
     .map(
       (update) => `
         <article>
+          ${update.image ? `<img class="update-image" src="${update.image}" alt="${escapeHtml(update.title)}" />` : ""}
           <div class="update-meta">
             <span class="badge">${escapeHtml(update.category)}</span>
             <time datetime="${update.date}">${formatDate(update.date)}</time>
@@ -939,6 +1049,7 @@ function renderAdminList() {
     .map(
       (update) => `
         <article class="admin-item">
+          ${update.image ? `<img class="admin-thumb" src="${update.image}" alt="${escapeHtml(update.title)}" />` : ""}
           <div class="update-meta">
             <span class="badge">${escapeHtml(update.category)}</span>
             <time datetime="${update.date}">${formatDate(update.date)}</time>
@@ -996,6 +1107,9 @@ function setAdminVisible(visible) {
 function clearUpdateForm() {
   updateForm.reset();
   updateForm.elements.id.value = "";
+  updateForm.elements.existingImage.value = "";
+  imagePreview.hidden = true;
+  imagePreview.style.backgroundImage = "";
   document.querySelector("[data-save-update]").textContent = "Išsaugoti update";
 }
 
@@ -1020,7 +1134,7 @@ loginForm.addEventListener("submit", (event) => {
   const email = formData.get("email");
   const password = formData.get("password");
 
-  if (email === ADMIN_EMAIL && password === ADMIN_PASSWORD) {
+  if (email === ADMIN_EMAIL && password === getAdminPassword()) {
     sessionStorage.setItem(SESSION_KEY, "true");
     setAdminVisible(true);
     loginDialog.close();
@@ -1038,16 +1152,31 @@ document.querySelector("[data-logout]").addEventListener("click", () => {
   window.scrollTo({ top: 0, behavior: "smooth" });
 });
 
-updateForm.addEventListener("submit", (event) => {
+updateForm.addEventListener("submit", async (event) => {
   event.preventDefault();
   const formData = new FormData(updateForm);
   const id = formData.get("id");
   const updates = readUpdates();
+  let image = formData.get("existingImage") || "";
+
+  try {
+    const uploadedImage = await readImageFile(updateForm.elements.image.files[0]);
+    if (uploadedImage) image = uploadedImage;
+  } catch (error) {
+    alert(error.message);
+    return;
+  }
+
+  if (formData.get("removeImage")) {
+    image = "";
+  }
+
   const update = {
     id: id || crypto.randomUUID(),
     title: formData.get("title").trim(),
     category: formData.get("category").trim(),
     body: formData.get("body").trim(),
+    image,
     date: new Date().toISOString().slice(0, 10),
   };
 
@@ -1068,6 +1197,14 @@ adminList.addEventListener("click", (event) => {
     updateForm.elements.title.value = update.title;
     updateForm.elements.category.value = update.category;
     updateForm.elements.body.value = update.body;
+    updateForm.elements.existingImage.value = update.image || "";
+    if (update.image) {
+      imagePreview.hidden = false;
+      imagePreview.style.backgroundImage = `url("${update.image}")`;
+    } else {
+      imagePreview.hidden = true;
+      imagePreview.style.backgroundImage = "";
+    }
     document.querySelector("[data-save-update]").textContent = "Atnaujinti update";
     updateForm.scrollIntoView({ behavior: "smooth" });
   }
@@ -1080,6 +1217,50 @@ adminList.addEventListener("click", (event) => {
 });
 
 document.querySelector("[data-clear-form]").addEventListener("click", clearUpdateForm);
+
+updateForm.elements.image.addEventListener("change", async () => {
+  try {
+    const uploadedImage = await readImageFile(updateForm.elements.image.files[0]);
+    if (!uploadedImage) return;
+    imagePreview.hidden = false;
+    imagePreview.style.backgroundImage = `url("${uploadedImage}")`;
+  } catch (error) {
+    updateForm.elements.image.value = "";
+    alert(error.message);
+  }
+});
+
+passwordForm.addEventListener("submit", (event) => {
+  event.preventDefault();
+  passwordNote.classList.remove("error");
+
+  const formData = new FormData(passwordForm);
+  const currentPassword = formData.get("currentPassword");
+  const newPassword = formData.get("newPassword");
+  const repeatPassword = formData.get("repeatPassword");
+
+  if (currentPassword !== getAdminPassword()) {
+    passwordNote.classList.add("error");
+    passwordNote.textContent = "Dabartinis slaptažodis neteisingas.";
+    return;
+  }
+
+  if (newPassword.length < 8) {
+    passwordNote.classList.add("error");
+    passwordNote.textContent = "Naujas slaptažodis turi būti bent 8 simbolių.";
+    return;
+  }
+
+  if (newPassword !== repeatPassword) {
+    passwordNote.classList.add("error");
+    passwordNote.textContent = "Nauji slaptažodžiai nesutampa.";
+    return;
+  }
+
+  setAdminPassword(newPassword);
+  passwordForm.reset();
+  passwordNote.textContent = "Slaptažodis pakeistas. Kitą kartą prisijunkite nauju slaptažodžiu.";
+});
 
 menuToggle.addEventListener("click", () => {
   mainNav.classList.toggle("is-open");
