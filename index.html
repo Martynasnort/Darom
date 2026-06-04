@@ -3,69 +3,89 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>DAROM? | Statybos ir aplinkos tvarkymo darbai</title>
-<style>
-body{margin:0;font-family:Arial,sans-serif;background:#111;color:#fff}
-header{padding:80px 20px;text-align:center;background:#1a1a1a}
-h1{color:#f4c400;font-size:48px}
-section{padding:50px 20px;max-width:1100px;margin:auto}
-.cards{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
-.card{background:#1f1f1f;padding:20px;border-radius:12px}
-.btn{display:inline-block;background:#f4c400;color:#000;padding:12px 20px;border-radius:8px;text-decoration:none;font-weight:bold}
-footer{padding:30px;text-align:center;background:#1a1a1a}
-</style>
+<title>DAROM?</title>
+<link rel="stylesheet" href="style.css">
 </head>
 <body>
+<nav>
+<div class="logo">DAROM<span>?</span></div>
+<div class="menu">Pradžia | Paslaugos | Darbų galerija | Atsiliepimai | Kontaktai</div>
+</nav>
 
-<header>
-<h1>DAROM?</h1>
-<h2>Kokybiški statybos ir aplinkos tvarkymo darbai</h2>
+<section class="hero">
+<div class="content">
+<h1>PATIKIMI DARBAI.<br><span>GERAS REZULTATAS.</span></h1>
 <p>Nesvarbu, ar reikia nedidelio remonto, ar didesnio projekto – pasirūpinsime kokybišku rezultatu. Nuo pirmo skambučio iki galutinio rezultato.</p>
-<p><a class="btn" href="tel:+37064853490">Skambinti dabar</a></p>
-</header>
-
-<section>
-<h2>Paslaugos</h2>
-<div class="cards">
-<div class="card"><h3>Statybos darbai</h3></div>
-<div class="card"><h3>Remonto darbai</h3></div>
-<div class="card"><h3>Karkasiniai namai</h3></div>
-<div class="card"><h3>Aplinkos tvarkymas</h3></div>
+<div class="buttons">
+<button>Gauti pasiūlymą</button>
+<button>Messenger</button>
+<button>Skambinti</button>
+</div>
 </div>
 </section>
 
 <section>
-<h2>Kaip vyksta darbai?</h2>
-<ol>
-<li>Susisiekiate</li>
-<li>Aptariame projektą</li>
-<li>Pateikiame pasiūlymą</li>
-<li>Atliekame darbus</li>
-<li>Perduodame rezultatą</li>
-</ol>
+<h2>Mūsų paslaugos</h2>
+<div class="grid">
+<div class="card">🏗️ Statybos ir remonto darbai</div>
+<div class="card">🏡 Vaikų namukai</div>
+<div class="card">🎠 Sūpynės ir žaidimų aikštelės</div>
+<div class="card">🌿 Aplinkos tvarkymas</div>
+</div>
 </section>
 
 <section>
 <h2>Kodėl verta rinktis mus?</h2>
-<ul>
-<li>Atsakingas požiūris</li>
-<li>Kokybiškas rezultatas</li>
-<li>Sąžiningos kainos</li>
-<li>Aiškus bendravimas</li>
-<li>Tvarka darbo vietoje</li>
-</ul>
+<div class="grid">
+<div class="card">Kokybė</div>
+<div class="card">Patirtis</div>
+<div class="card">Laiku</div>
+<div class="card">Aiškus bendravimas</div>
+</div>
+</section>
+
+<section>
+<h2>Darbų galerija</h2>
+<p>Čia vėliau dėsi savo nuotraukas.</p>
+</section>
+
+<section>
+<h2>Klientų atsiliepimai</h2>
+<div class="grid">
+<div class="card">⭐⭐⭐⭐⭐ Puikus darbas!</div>
+<div class="card">⭐⭐⭐⭐⭐ Rekomenduoju!</div>
+<div class="card">⭐⭐⭐⭐⭐ Kokybiškai ir laiku.</div>
+</div>
 </section>
 
 <section>
 <h2>Kontaktai</h2>
-<p><strong>Martynas Baksys</strong></p>
-<p>📞 +370 648 53 490</p>
-<p>✉️ Martynasnort@gmail.com</p>
+<p>Martynas Baksys</p>
+<p>+37064853490</p>
+<p>Martynasnort@gmail.com</p>
 </section>
 
-<footer>
-<p>© DAROM?</p>
-</footer>
-
+<footer id="footer">© 2026 DAROM? Visos teisės saugomos.</footer>
+<script src="script.js"></script>
 </body>
 </html>
+
+let c=0;
+footer.onclick=()=>{
+c++;
+if(c>=5){prompt('Administratoriaus kodas');c=0;}
+}
+
+
+body{margin:0;background:#0b0b0b;color:white;font-family:Arial}
+nav{display:flex;justify-content:space-between;padding:20px;background:#111}
+.logo{font-size:36px;font-weight:bold}
+.logo span,h1 span,h2{color:#f5b400}
+.hero{height:80vh;background:linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.7));display:flex;align-items:center;padding:40px}
+.content{max-width:700px}
+h1{font-size:60px}
+button{background:#f5b400;border:0;padding:14px 20px;margin-right:10px;border-radius:8px}
+section{padding:60px 20px}
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
+.card{background:#181818;padding:20px;border-radius:10px}
+footer{text-align:center;padding:30px;border-top:1px solid #222}
