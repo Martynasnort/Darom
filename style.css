@@ -163,11 +163,17 @@ html{
     .hero{
         padding:30px;
     }
+
 }
 .card img{
     width:100%;
-    height:250px;
+    height:220px;
     object-fit:cover;
     border-radius:10px;
-    display:block;
+    margin-bottom:15px;
+}
+
+.card h3{
+    margin-bottom:10px;
+    color:#f5b400;
 }
