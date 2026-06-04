@@ -172,7 +172,8 @@ footer{
     .hero{
         padding:30px;
     }
- } .messenger-btn{
+ }
+.messenger-btn{
     position:fixed;
     right:20px;
     bottom:20px;
