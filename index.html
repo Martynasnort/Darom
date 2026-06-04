@@ -7,85 +7,21 @@
 <link rel="stylesheet" href="style.css">
 </head>
 <body>
+
 <nav>
-<div class="logo">DAROM<span>?</span></div>
-<div class="menu">Pradžia | Paslaugos | Darbų galerija | Atsiliepimai | Kontaktai</div>
+  <div class="logo">DAROM<span>?</span></div>
 </nav>
 
 <section class="hero">
-<div class="content">
-<h1>PATIKIMI DARBAI.<br><span>GERAS REZULTATAS.</span></h1>
-<p>Nesvarbu, ar reikia nedidelio remonto, ar didesnio projekto – pasirūpinsime kokybišku rezultatu. Nuo pirmo skambučio iki galutinio rezultato.</p>
-<div class="buttons">
-<button>Gauti pasiūlymą</button>
-<button>Messenger</button>
-<button>Skambinti</button>
-</div>
-</div>
-</section>
-
-<section>
-<h2>Mūsų paslaugos</h2>
-<div class="grid">
-<div class="card">🏗️ Statybos ir remonto darbai</div>
-<div class="card">🏡 Vaikų namukai</div>
-<div class="card">🎠 Sūpynės ir žaidimų aikštelės</div>
-<div class="card">🌿 Aplinkos tvarkymas</div>
-</div>
-</section>
-
-<section>
-<h2>Kodėl verta rinktis mus?</h2>
-<div class="grid">
-<div class="card">Kokybė</div>
-<div class="card">Patirtis</div>
-<div class="card">Laiku</div>
-<div class="card">Aiškus bendravimas</div>
-</div>
-</section>
-
-<section>
-<h2>Darbų galerija</h2>
-<p>Čia vėliau dėsi savo nuotraukas.</p>
-</section>
-
-<section>
-<h2>Klientų atsiliepimai</h2>
-<div class="grid">
-<div class="card">⭐⭐⭐⭐⭐ Puikus darbas!</div>
-<div class="card">⭐⭐⭐⭐⭐ Rekomenduoju!</div>
-<div class="card">⭐⭐⭐⭐⭐ Kokybiškai ir laiku.</div>
-</div>
-</section>
-
-<section>
-<h2>Kontaktai</h2>
-<p>Martynas Baksys</p>
-<p>+37064853490</p>
-<p>Martynasnort@gmail.com</p>
+  <div class="content">
+    <h1>PATIKIMI DARBAI.<br><span>GERAS REZULTATAS.</span></h1>
+    <p>Nesvarbu, ar reikia nedidelio remonto, ar didesnio projekto – pasirūpinsime kokybišku rezultatu.</p>
+    <button>Gauti pasiūlymą</button>
+  </div>
 </section>
 
 <footer id="footer">© 2026 DAROM? Visos teisės saugomos.</footer>
+
 <script src="script.js"></script>
 </body>
 </html>
-
-let c=0;
-footer.onclick=()=>{
-c++;
-if(c>=5){prompt('Administratoriaus kodas');c=0;}
-}
-
-
-body{margin:0;background:#0b0b0b;color:white;font-family:Arial}
-nav{display:flex;justify-content:space-between;padding:20px;background:#111}
-.logo{font-size:36px;font-weight:bold}
-.logo span,h1 span,h2{color:#f5b400}
-.hero{height:80vh;background:linear-gradient(rgba(0,0,0,.7),rgba(0,0,0,.7));display:flex;align-items:center;padding:40px}
-.content{max-width:700px}
-h1{font-size:60px}
-button{background:#f5b400;border:0;padding:14px 20px;margin-right:10px;border-radius:8px}
-section{padding:60px 20px}
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:20px}
-.card{background:#181818;padding:20px;border-radius:10px}
-footer{text-align:center;padding:30px;border-top:1px solid #222}
