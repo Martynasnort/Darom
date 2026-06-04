@@ -18,6 +18,7 @@ nav{
     background:#111;
     position:sticky;
     top:0;
+    z-index:1000;
 }
 
 .logo{
@@ -38,6 +39,7 @@ nav{
     color:white;
     text-decoration:none;
     font-weight:bold;
+    transition:0.3s;
 }
 
 .menu a:hover{
@@ -45,26 +47,20 @@ nav{
 }
 
 .hero{
-   min-height:100vh;
-   display:flex;
-   align-items:center;
-   padding:80px;
+    min-height:100vh;
+    display:flex;
+    align-items:center;
+    padding:80px;
 
-   background:
-   linear-gradient(
-      rgba(0,0,0,.75),
-      rgba(0,0,0,.75)
-   ),
-   url("https://images.unsplash.com/photo-1504307651254-35680f356dfd");
+    background:
+    linear-gradient(
+        rgba(0,0,0,.75),
+        rgba(0,0,0,.75)
+    ),
+    url("https://images.unsplash.com/photo-1504307651254-35680f356dfd");
 
-   background-size:cover;
-   background-position:center;
-}
-
-.content{
-   max-width:700px;
-}
-
+    background-size:cover;
+    background-position:center;
 }
 
 .content{
@@ -100,6 +96,7 @@ button{
     border-radius:8px;
     font-weight:bold;
     cursor:pointer;
+    transition:0.3s;
 }
 
 button:hover{
@@ -127,15 +124,41 @@ h2{
     border:1px solid #222;
     padding:25px;
     border-radius:12px;
-    transition:.3s;
+    transition:0.3s;
 }
 
 .card:hover{
     transform:translateY(-5px);
+    border-color:#f5b400;
 }
 
 footer{
     text-align:center;
     padding:30px;
     border-top:1px solid #222;
+}
+
+html{
+    scroll-behavior:smooth;
+}
+
+@media(max-width:768px){
+
+    nav{
+        flex-direction:column;
+        gap:15px;
+    }
+
+    .menu{
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    h1{
+        font-size:42px;
+    }
+
+    .hero{
+        padding:30px;
+    }
 }
