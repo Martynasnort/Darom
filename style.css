@@ -15,7 +15,7 @@ body{
     line-height:1.6;
 }
 
-/* NAVIGACIJA */
+
 
 nav{
     position:sticky;
@@ -50,9 +50,6 @@ nav{
 .menu a:hover{
     color:#f5b400;
 }
-
-/* HERO */
-
 .hero{
     min-height:100vh;
     display:flex;
@@ -62,10 +59,14 @@ nav{
     linear-gradient(
     rgba(0,0,0,.75),
     rgba(0,0,0,.75)),
-    url("images/hero.jpg");
+    url("https://images.unsplash.com/photo-1504307651254-35680f356dfd");
 
     background-size:cover;
     background-position:center;
+}
+
+
+
 }
 
 .content{
@@ -88,7 +89,6 @@ h1 span{
     color:#ddd;
 }
 
-/* MYGTUKAI */
 
 .buttons{
     display:flex;
@@ -115,7 +115,6 @@ button:hover,
     box-shadow:0 10px 25px rgba(245,180,0,.3);
 }
 
-/* SEKCIJOS */
 
 section{
     padding:80px 50px;
@@ -128,7 +127,7 @@ h2{
     margin-bottom:40px;
 }
 
-/* GRID */
+
 
 .grid{
     display:grid;
@@ -136,7 +135,6 @@ h2{
     gap:25px;
 }
 
-/* KORTELES */
 
 .card{
     background:#181818;
@@ -168,7 +166,6 @@ h2{
     transform:scale(1.05);
 }
 
-/* STATISTIKA */
 
 .stats{
     display:grid;
@@ -190,7 +187,7 @@ h2{
     border-color:#f5b400;
 }
 
-/* KONTAKTAI */
+
 
 #kontaktai{
     text-align:center;
@@ -201,7 +198,6 @@ h2{
     margin:12px 0;
 }
 
-/* FOOTER */
 
 footer{
     border-top:1px solid #222;
@@ -210,7 +206,7 @@ footer{
     color:#999;
 }
 
-/* MESSENGER */
+
 
 .messenger-btn{
     position:fixed;
@@ -235,7 +231,7 @@ footer{
     transform:scale(1.1);
 }
 
-/* TELEFONAMS */
+
 
 @media(max-width:768px){
 
