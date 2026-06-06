@@ -24,10 +24,11 @@ nav{
     top:0;
     z-index:1000;
 }
+.logo img{
+    height:60px;
+    width:auto;
+}
 
-.logo{
-    font-size:36px;
-    font-weight:bold;
 }
 
 .logo span{
