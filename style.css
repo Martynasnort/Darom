@@ -300,6 +300,7 @@ footer{
     font-weight:bold;
 }
 #zemelapis iframe{
+    text-align:center;
     width:100%;
     border:none;
     border-radius:18px;
