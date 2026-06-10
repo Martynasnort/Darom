@@ -157,11 +157,6 @@ h2{
     transform:scale(1.05);
 }
 
-
-.stats{
-    display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:25px;
 }
 
 .stats div{
