@@ -299,3 +299,8 @@ footer{
     line-height:1.8;
     font-weight:bold;
 }
+#zemelapis iframe{
+    width:100%;
+    border:none;
+    border-radius:18px;
+}
