@@ -20,7 +20,7 @@ body{
 nav{ display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:15px 40px;
+    padding:10px 40px;
     
 }
 
@@ -46,7 +46,7 @@ nav{ display:flex;
     color:#f5b400;
 }
 .hero{
-    min-height:100vh;
+    min-height:90vh;
     display:flex;
     align-items:center;
     padding:80px;
