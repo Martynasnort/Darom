@@ -292,3 +292,10 @@ footer{
     color:#ddd;
     font-size:18px;
 }
+.mini{
+    margin-bottom:25px;
+    font-size:18px;
+    color:#f5b400;
+    line-height:1.8;
+    font-weight:bold;
+}
