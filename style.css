@@ -25,10 +25,9 @@ nav{ display:flex;
 }
 
 .logo img{
-  width:320px;
+ width:300px;
     height:auto;
     display:block;
-   
 }
 
 .menu{
