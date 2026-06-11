@@ -65,7 +65,7 @@ nav{ display:flex;
 }
 
 h1{
-    font-size:72px;
+    font-size:64px;
     font-weight:800;
     line-height:1.1;
     margin-bottom:20px;
@@ -155,8 +155,6 @@ h2{
 
 .card img:hover{
     transform:scale(1.05);
-}
-
 }
 
 .stats div{
