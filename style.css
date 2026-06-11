@@ -54,10 +54,10 @@ nav{ display:flex;
     linear-gradient(
     rgba(0,0,0,.55),
     rgba(0,0,0,.55)),
-    url("hero.jpg");
+    url("629703cc-9925-4ee6-b11c-84aaa2f2386a.png");
 
     background-size:cover;
-    background-position:center center;
+    background-position:center;
     background-repeat:no-repeat;
 }
 .content{
