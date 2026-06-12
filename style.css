@@ -15,14 +15,15 @@ body{
     line-height:1.6;
 }
 
-
-
-nav{ display:flex;
+nav{
+    display:flex;
     justify-content:space-between;
     align-items:center;
     padding:10px 40px;
-    
+    background:rgba(0,0,0,.35);
+    backdrop-filter:blur(10px);
 }
+
 
 .logo img{
   width:200px;
@@ -60,8 +61,11 @@ nav{ display:flex;
     background-position:center;
     background-repeat:no-repeat;
 }
+
 .content{
-    max-width:750px;
+    max-width:900px;
+    margin:auto;
+    text-align:center;
 }
 
 h1{
@@ -71,23 +75,18 @@ h1{
     margin-bottom:20px;
 }
 
-h1 span{
-    color:#f5b400;
-}
-
 .content p{
     font-size:21px;
     margin-bottom:30px;
     color:#ddd;
 }
 
-
 .buttons{
     display:flex;
     gap:15px;
+    justify-content:center;
     flex-wrap:wrap;
 }
-
 button,
 .btn{
     background:#f5b400;
