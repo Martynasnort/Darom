@@ -15,15 +15,23 @@ body{
     line-height:1.6;
 }
 
-nav{
+.hero{
+    min-height:100vh;
     display:flex;
-    justify-content:space-between;
     align-items:center;
-    padding:10px 40px;
-    background:rgba(0,0,0,.35);
-    backdrop-filter:blur(10px);
-}
+    padding:80px;
+    padding-top:120px;
 
+    background:
+    linear-gradient(
+    rgba(0,0,0,.55),
+    rgba(0,0,0,.55)),
+    url("629703cc-9925-4ee6-b11c-84aaa2f2386a.png");
+
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+}
 
 .logo img{
   width:200px;
