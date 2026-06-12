@@ -16,10 +16,12 @@ body{
 }
 
 nav{
-    display:flex;
+  display:flex;
     justify-content:space-between;
     align-items:center;
     padding:10px 40px;
+    background:rgba(0,0,0,.25);
+    backdrop-filter:blur(8px);
 }
 
 .logo img{
@@ -44,12 +46,6 @@ nav{
     color:#f5b400;
 }
 
-.menu a:hover{
-    color:white;
-    text-decoration:none;
-    font-weight:600;
-    transition:.3s;
-}
 .hero{
     min-height:100vh;
     display:flex;
@@ -104,7 +100,8 @@ h1{
 }
 
 .btn:hover{
-    transform:translateY(-3px);
+  transform:translateY(-3px);
+    box-shadow:0 10px 25px rgba(245,180,0,.3);
 }
 
 section{
