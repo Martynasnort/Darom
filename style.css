@@ -15,26 +15,15 @@ body{
     line-height:1.6;
 }
 
-.hero{
-    min-height:100vh;
+nav{
     display:flex;
+    justify-content:space-between;
     align-items:center;
-    padding:80px;
-    padding-top:120px;
-
-    background:
-    linear-gradient(
-    rgba(0,0,0,.55),
-    rgba(0,0,0,.55)),
-    url("629703cc-9925-4ee6-b11c-84aaa2f2386a.png");
-
-    background-size:cover;
-    background-position:center;
-    background-repeat:no-repeat;
+    padding:10px 40px;
 }
 
 .logo img{
-  width:200px;
+    width:200px;
     height:auto;
     display:block;
 }
@@ -48,21 +37,23 @@ body{
     color:white;
     text-decoration:none;
     font-weight:600;
-    transition:.3s;
 }
 
 .menu a:hover{
     color:#f5b400;
 }
+
 .hero{
     min-height:100vh;
     display:flex;
     align-items:center;
     padding:80px;
+
     background:
     linear-gradient(
-    rgba(0,0,0,.55),
-    rgba(0,0,0,.55)),
+        rgba(0,0,0,.55),
+        rgba(0,0,0,.55)
+    ),
     url("629703cc-9925-4ee6-b11c-84aaa2f2386a.png");
 
     background-size:cover;
@@ -79,7 +70,6 @@ body{
 h1{
     font-size:64px;
     font-weight:800;
-    line-height:1.1;
     margin-bottom:20px;
 }
 
@@ -95,24 +85,15 @@ h1{
     justify-content:center;
     flex-wrap:wrap;
 }
-button,
+
 .btn{
     background:#f5b400;
     color:#000;
     text-decoration:none;
-    border:none;
     padding:15px 28px;
     border-radius:10px;
     font-weight:bold;
-    transition:.3s;
 }
-
-button:hover,
-.btn:hover{
-    transform:translateY(-3px);
-    box-shadow:0 10px 25px rgba(245,180,0,.3);
-}
-
 
 section{
     padding:80px 50px;
@@ -121,11 +102,8 @@ section{
 h2{
     text-align:center;
     color:#f5b400;
-    font-size:34px;
     margin-bottom:40px;
 }
-
-
 
 .grid{
     display:grid;
@@ -133,147 +111,17 @@ h2{
     gap:25px;
 }
 
-
 .card{
     background:#181818;
     border:1px solid #2a2a2a;
     border-radius:18px;
     padding:25px;
-    transition:.3s;
 }
 
-.card:hover{
-    transform:translateY(-8px);
-    border-color:#f5b400;
-}
-
-.card h3{
-    color:#f5b400;
-    margin-bottom:15px;
-}
-
-.card img{
-      width:100%;
-    height:280px;
-    object-fit:cover;
-    border-radius:12px;
-    display:block;
-}
-
-.card img:hover{
-    transform:scale(1.05);
-}
-
-.stats div{
-    background:#181818;
-    border:1px solid #2a2a2a;
-    padding:35px;
-    text-align:center;
-    border-radius:18px;
-    font-size:24px;
-    font-weight:bold;
-}
-
-.stats div:hover{
-    border-color:#f5b400;
-}
-
-
-
-#kontaktai{
-    text-align:center;
-}
-
-#kontaktai p{
-    font-size:20px;
-    margin:12px 0;
-}
-
-
-footer{
-    border-top:1px solid #222;
-    text-align:center;
-    padding:35px;
-    color:#999;
-}
-
-
-
-.messenger-btn{
-    position:fixed;
-    right:20px;
-    bottom:20px;
-    width:65px;
-    height:65px;
-    border-radius:50%;
-    background:#0084ff;
-    color:white;
-    text-decoration:none;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    font-size:30px;
-    box-shadow:0 10px 25px rgba(0,0,0,.4);
-    z-index:9999;
-    transition:.3s;
-}
-
-.messenger-btn:hover{
-    transform:scale(1.1);
-}
-
-
-
-@media(max-width:768px){
-
-    nav{
-        flex-direction:column;
-        gap:15px;
-        padding:20px;
-    }
-
-    .menu{
-        flex-wrap:wrap;
-        justify-content:center;
-        gap:15px;
-    }
-
-    .hero{
-        padding:30px;
-        text-align:center;
-    }
-
-    h1{
-        font-size:42px;
-    }
-
-    .content p{
-        font-size:18px;
-    }
-
-    .buttons{
-        justify-content:center;
-    }
-
-    .stats{
-        grid-template-columns:1fr;
-    }
-
-    section{
-        padding:60px 20px;
-    }
-
-    .logo img{
-         max-width:250px;
-    height:auto;
-    }
-}
 .stats{
     display:grid;
     grid-template-columns:repeat(3,1fr);
     gap:25px;
-    padding:60px 50px;
-    text-align:center;
 }
 
 .stat-box{
@@ -281,34 +129,15 @@ footer{
     border:1px solid #2a2a2a;
     border-radius:18px;
     padding:35px;
-    transition:.3s;
-}
-
-.stat-box:hover{
-    border-color:#f5b400;
-    transform:translateY(-5px);
-}
-
-.stat-box h3{
-    color:#f5b400;
-    font-size:42px;
-    margin-bottom:10px;
-}
-
-.stat-box p{
-    color:#ddd;
-    font-size:18px;
-}
-.mini{
-    margin-bottom:25px;
-    font-size:18px;
-    color:#f5b400;
-    line-height:1.8;
-    font-weight:bold;
-}
-#zemelapis iframe{
     text-align:center;
-    width:100%;
-    border:none;
-    border-radius:18px;
+}
+
+#kontaktai{
+    text-align:center;
+}
+
+footer{
+    text-align:center;
+    padding:35px;
+    color:#999;
 }
