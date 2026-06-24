@@ -180,24 +180,57 @@ footer{
     color:#999;
 }
 @media(max-width:768px){
+
+    nav{
+        padding:10px 15px;
+        flex-direction:column;
+        gap:15px;
+    }
+
+    .logo img{
+        width:140px;
+    }
+
+    .menu{
+        gap:15px;
+        flex-wrap:wrap;
+        justify-content:center;
+    }
+
+    .hero{
+        min-height:70vh;
+        padding:40px 20px;
+    }
+
+    h1{
+        font-size:42px;
+    }
+
+    .content p{
+        font-size:16px;
+    }
+
     section{
-        padding:60px 20px;
+        padding:50px 15px;
+    }
+
+    .grid{
+        grid-template-columns:1fr;
     }
 
     .stats{
-        grid-template-columns:1fr;
+        flex-direction:column;
+        gap:25px;
+    }
+
+    .stat-box h3{
+        font-size:32px;
+    }
+
+    .btn{
+        width:100%;
+        max-width:280px;
+        text-align:center;
     }
 }
-
-.gallery{
-    display:block;
-    text-align:center;
-}
-
-.gallery img{
-    width:90%;
-    max-width:800px;
-    height:auto;
-    margin:20px 0;
-    border-radius:15px;
 }
