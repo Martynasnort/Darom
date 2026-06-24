@@ -50,7 +50,7 @@ nav{
 }
 
 .hero{
-    min-height:100vh;
+    min-height:85vh;
     display:flex;
     align-items:center;
     padding:80px;
