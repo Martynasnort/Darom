@@ -177,21 +177,6 @@ footer{
     color:#999;
 }
 @media(max-width:768px){
-
-    nav{
-        flex-direction:column;
-        gap:15px;
-    }
-
-    .menu{
-        flex-wrap:wrap;
-        justify-content:center;
-    }
-
-    h1{
-        font-size:42px;
-    }
-
     section{
         padding:60px 20px;
     }
@@ -200,19 +185,7 @@ footer{
         grid-template-columns:1fr;
     }
 }
-.gallery{
-    display:flex;
-    flex-wrap:wrap;
-    gap:20px;
-    justify-content:center;
-}
 
-.gallery img{
-    width:350px;
-    max-width:100%;
-    border-radius:15px;
-    box-shadow:0 5px 15px rgba(0,0,0,0.2);
-}
 .gallery{
     display:flex;
     flex-wrap:wrap;
