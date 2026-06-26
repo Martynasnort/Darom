@@ -186,12 +186,14 @@ footer{
 
 .gallery img{
     width:100%;
+    aspect-ratio:4/3;
     height:350px;
     object-fit:cover;
     border-radius:15px;
     transition:.3s;
     cursor:pointer;
     border:2px solid #2a2a2a;
+
 }
 
 .gallery img:hover{
