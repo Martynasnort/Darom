@@ -148,22 +148,6 @@ h2{
     color:#f5b400;
 }
 
-.stats{
-    display:flex;
-    justify-content:center;
-    gap:80px;
-    margin:60px 0;
-}
-
-.stat-box{
-    text-align:center;
-}
-
-.stat-box h3{
-    font-size:42px;
-    color:#f5b400;
-}
-
 #kontaktai{
     text-align:center;
 }
