@@ -230,15 +230,6 @@ section{
     grid-template-columns:1fr;
 }
 
-.stats{
-    flex-direction:column;
-    gap:30px;
-}
-
-.stat-box h3{
-    font-size:34px;
-}
-
 .btn{
     width:100%;
     max-width:320px;
