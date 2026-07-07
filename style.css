@@ -23,7 +23,7 @@ nav{
     display:flex;
     justify-content:space-between;
     align-items:center;
-    padding:12px 40px;
+    padding:8px 20px;
     background:rgba(10,10,10,.75);
     backdrop-filter:blur(12px);
     position:sticky;
@@ -33,7 +33,7 @@ nav{
 }
 
 .logo img{
-    width:220px;
+    width:160px;
     height:auto;
     display:block;
 }
@@ -206,13 +206,13 @@ footer{
 @media (max-width:768px){
 nav{
     flex-direction:column;
-    gap:18px;
+    gap:8px;
     padding:15px;
 }
-.logo img{width:170px;}
+.logo img{width:130px;}
 .menu{gap:18px;justify-content:center;flex-wrap:wrap;}
-.menu a{font-size:18px;}
-.hero{min-height:90vh;padding:45px 20px;}
+.menu a{font-size:16px;}
+.hero{min-height:90vh;  padding:20px 20px 45px;}
 h1{font-size:clamp(36px,10vw,56px);line-height:1.1;}
 .content p,.mini{font-size:18px;}
 section{padding:60px 20px;}
