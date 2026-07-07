@@ -228,23 +228,72 @@ section{padding:60px 20px;}
 
 @media (max-width:768px){
 
+nav{
+    padding:10px 20px;
+    flex-direction:row;
+    justify-content:space-between;
+    align-items:center;
+}
+
+.logo img{
+    width:130px;
+}
+
+.hamburger{
+    display:block;
+    font-size:32px;
+    color:#fff;
+    cursor:pointer;
+}
+
 .menu{
     display:none;
     flex-direction:column;
     position:absolute;
-    top:70px;
+    top:65px;
     left:0;
     width:100%;
     background:#111;
     padding:20px 0;
+    border-top:1px solid #2a2a2a;
 }
 
 .menu.show{
     display:flex;
 }
 
-.hamburger{
-    display:block;
+.menu a{
+    padding:15px;
+    text-align:center;
+    font-size:18px;
 }
 
+.hero{
+    min-height:90vh;
+    padding:30px 20px 45px;
 }
+
+h1{
+    font-size:clamp(36px,10vw,56px);
+}
+
+.content p,
+.mini{
+    font-size:18px;
+}
+
+section{
+    padding:60px 20px;
+}
+
+.grid{
+    grid-template-columns:1fr;
+}
+
+.btn{
+    width:100%;
+    max-width:320px;
+    font-size:20px;
+    padding:18px;
+}
+
