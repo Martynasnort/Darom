@@ -7,3 +7,6 @@ document.getElementById('footer').addEventListener('click',()=>{
     clicks=0;
   }
 });
+function toggleMenu() {
+    document.getElementById("menu").classList.toggle("show");
+}
