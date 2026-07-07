@@ -219,3 +219,32 @@ section{padding:60px 20px;}
 .grid{grid-template-columns:1fr;}
 .btn{width:100%;max-width:320px;font-size:20px;padding:18px;}
 }
+.hamburger{
+    display:none;
+    font-size:32px;
+    color:white;
+    cursor:pointer;
+}
+
+@media (max-width:768px){
+
+.menu{
+    display:none;
+    flex-direction:column;
+    position:absolute;
+    top:70px;
+    left:0;
+    width:100%;
+    background:#111;
+    padding:20px 0;
+}
+
+.menu.show{
+    display:flex;
+}
+
+.hamburger{
+    display:block;
+}
+
+}
